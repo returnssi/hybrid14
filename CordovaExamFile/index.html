@@ -1,0 +1,49 @@
+<!-- ⓒ OdinBOX -->
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>메인으로이동</title>
+    <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.4.5.min.css"/>
+    <script src="jquery.mobile/jquery-1.11.1.min.js"></script>
+    <script src="jquery.mobile/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <style>
+        img {
+            height: 100vh;
+            background: no-repeat center/cover;
+        }
+    </style>
+</head>
+<body>
+    <script language='javascript'>
+
+        $(document).ready(function() {
+        
+            $('#btn_w').click(function() {
+        
+                $(location).attr('href','page.html');
+        
+            });
+        
+        });
+            // 진동 메서드 통합
+      navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+      function vibrateOdin() {
+      
+      if (navigator.vibrate) {
+      // 배열로도 가능하다.
+      navigator.vibrate([1000]); //([500,300,500,300]); 배열도 가능 - 1000ms = 1초
+      }
+      else
+      {
+      alert("진동을 지원하지 않는 기종 입니다.");
+      }
+      }
+        </script>
+    <input type='button' id='btn_w' value='메인으로' onclick="vibrateOdin()">
+    <img src="main.jpg" style="max-width:auto; height:auto;">
+</body>
+</html>
+<!-- ⓒ OdinBOX -->
