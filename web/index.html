@@ -1,0 +1,69 @@
+<!-- ⓒ OdinBOX, 최영환 -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하이브리드앱개발 : 회원 정보</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.4.5.min.css"/>
+	<script src="jquery.mobile/jquery-1.11.1.min.js"></script>
+	<script src="jquery.mobile/jquery.mobile-1.4.5.min.js"></script>
+	
+	<script src="cordova.js"></script>	
+
+    <script type="text/javascript">
+    setTimeout(function(){
+        location.reload();
+        }, 500000); // 3000밀리초 = 3초
+
+
+        $(document).ready(function() {
+            var url = "http://아이피주소/db.php";
+            $.getJSON(url, function(result) {
+                console.log(result);
+                $.each(result, function(i, field) {
+                    var id = field.id;
+                    var name = field.name;
+                    var age = field.age;
+                    var city = field.city;
+                    $("#listview").append("<hr> <p> 고객 번호: " + id +" 성함: "+ name +" 나이: "+ age +" 지역: "+city+"</p><hr>");
+                });
+            });
+        });
+
+    // 진동 메서드 통합
+      navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+      function vibrateOdin() {
+      
+      if (navigator.vibrate) {
+      // 배열로도 가능하다.
+      navigator.vibrate([1000]); //([500,300,500,300]); 배열도 가능 - 1000ms = 1초
+      }
+      else
+      {
+      alert("진동을 지원하지 않는 기종 입니다.");
+      }
+      }
+    </script>
+</head>
+
+<body>
+
+        <div class="header">
+            <h2>회원 목록</h2>
+        </div>
+    <form method="post">
+    <div class="input-group" style="text-align:center">
+        <form><input type="button" value="새로고침" onClick="window.location.reload()"></form>
+    <ul class="list" id="listview">
+    </ul>
+        <a href="insert.html" onclick="vibrateOdin()">회원 추가</a>
+        <a href="update.html" onclick="vibrateOdin()">회원 수정</a>
+        <a href="delete.html" onclick="vibrateOdin()">회원 삭제</a>
+        
+</div>
+    </form>
+</body>
+<!-- ⓒ OdinBOX, 최영환 -->
+</html>
+<!-- ⓒ OdinBOX, 최영환 -->
