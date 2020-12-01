@@ -1,0 +1,62 @@
+<!-- ⓒ OdinBOX, 최영환 -->
+<html>
+<head>
+  <!-- ⓒ OdinBOX, 최영환 -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>하이브리드앱개발 : 회원 정보</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.4.5.min.css"/>
+	<script src="jquery.mobile/jquery-1.11.1.min.js"></script>
+	<script src="jquery.mobile/jquery.mobile-1.4.5.min.js"></script>
+	
+	<script src="cordova.js"></script>	
+<!-- ⓒ OdinBOX, 최영환 -->
+    <!-- <script type="text/javascript" src="../js/jquery-ui-1.12.1/jquery-ui.min.js"></script> -->
+    <script>
+        function erchk() {
+          if (document.getElementById("name").value == "") {
+              alert("이름을 입력해주세요");
+              return false;
+          }else if (document.getElementById("age").value == "") {
+              alert("나이을 입력해주세요");
+              return false;
+          }else if (document.getElementById("city").value == "") {
+              alert("지역을 입력해주세요");
+              return false;
+      } else
+      document.insertMember.submit();
+        }
+      
+      // 작동되는 진동 메소드가 다르므로 통합
+      navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+      function vibrateOdin() {
+      
+      if (navigator.vibrate) {
+      // 배열로도 가능하다.
+      navigator.vibrate([1000]); //([500,300,500,300]); 배열도 가능 - 1000ms = 1초
+      }
+      else
+      {
+      alert("진동을 지원하지 않는 기종 입니다.");
+      }
+      }
+
+
+      </script>
+  </head>
+  <body>
+    <div class="header">
+        <h2>회원 삭제</h2>
+      </div>
+      <div class="wrap">
+    <form name="updateMember" action="delete.php" method="POST">
+      <p><input type="text" name="name" placeholder="삭제 할 회원 이름" required></p>
+      <br>
+      <button type="submit" onclick="vibrateOdin()" >삭제</button>
+      
+    </div>
+    </form>
+  </body>
+</html>
+<!-- ⓒ OdinBOX, 최영환 -->
